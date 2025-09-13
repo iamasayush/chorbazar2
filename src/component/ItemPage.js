@@ -15,7 +15,7 @@ export default function ItemPage({ description }) {
   const title = imageFolder.charAt(0).toUpperCase() + imageFolder.slice(1);
 
   return (
-    <div className="grid grid-rows-12 lg:grid-cols-3 grid-rows-3 lg:grid-rows-4 h-screen">
+    <div className="grid grid-rows-20 lg:grid-cols-3 lg:grid-rows-4 h-screen">
       <div className="flex justify-center items-center col-span-3 text-center text-5xl lg;text-6xl lg:text-9xl ">
         <h1>{title}</h1>
       </div>
