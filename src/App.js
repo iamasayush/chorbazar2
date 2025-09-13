@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { thing } from './component/imports';
+import { routes } from './component/Routing';
 
-function App() {
+export default function App() {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
+    setCount(storedCart.length);
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <thing.Heading />
+      <thing.Navigation count={count} />
+
+      <Routes>
+        {routes.map(({ path, element }, index) => (
+          <Route
+            key={index}
+            path={path}
+            element={React.cloneElement(element, { count, setCount })}
+          />
+        ))}
+      </Routes>
+
+      <thing.Footer />
+    </BrowserRouter>
   );
 }
-
-export default App;
