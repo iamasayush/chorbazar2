@@ -30,7 +30,7 @@ export default function ItemPage({ description }) {
         <button onClick={next} className="lg:text-9xl text-4xl">▶</button>
       </div>
 
-      <div className=" lg:mx-96 lg:mx-24 mx-10 mt-24 col-span-3 text-lg lg:text-4xl text-justify">
+      <div className=" lg:mx-96 lg:mx-24 mx-10 mt-24 col-span-3 text-sm lg:text-4xl text-justify">
         <p>{description}</p>
       </div>
     </div>
